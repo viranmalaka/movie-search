@@ -31,9 +31,15 @@ export default class MovieService {
         Error: result.Error,
       };
     } catch (error) {
+      if (error) {
+        return {
+          Error: error.Error,
+          Response: error.Response,
+        };
+      }
       return {
-        Error: error.Error,
-        Response: error.Response,
+        Error: 'UNKNOWN_ERROR',
+        Response: 'False',
       };
     }
   }
@@ -51,10 +57,17 @@ export default class MovieService {
         Response: result.Response || '',
       };
     } catch (error) {
+      if (error) {
+        return {
+          Error: error.Error,
+          Response: error.Response,
+        };
+      }
       return {
-        Error: error.Error,
-        Response: error.Response,
+        Error: 'UNKNOWN_ERROR',
+        Response: 'False',
       };
+
     }
   }
 }

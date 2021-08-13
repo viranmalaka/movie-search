@@ -30,7 +30,6 @@ const MovieList: React.FC<MovieListProps> = ({ filter }: MovieListProps) => {
     }
 
     setLoading(true);
-    console.log({ append, pageNumber });
 
     const movies = await MovieService.getInstance().search(filter.searchQuery, pageNumber);
 
