@@ -34,6 +34,9 @@ const MovieCardContainer: React.FC<MovieCardContainerProps> = ({ dataSource, onF
 
   const handleViewMoreDetails = (imdbID: string, index: number) => {
     setMoreDetailMovieId(imdbID);
+
+    // Switch the original position of the movies
+    // not to show the blank spaces while navigating through the list details.
     if (index % 2 === 1) {
       const newList = [...dataSource];
       newList[index - 1] = dataSource[index];
@@ -66,7 +69,7 @@ const MovieCardContainer: React.FC<MovieCardContainerProps> = ({ dataSource, onF
                   <div className="content">
                     <ul>
                       {movieDetails.Ratings.map((rating) => <li
-                        key={rating.Source}>{rating.Source}: {rating.Value}</li>)}
+                        key={rating.Source}>- {rating.Source}: {rating.Value}</li>)}
                     </ul>
                   </div>
                 </div>
